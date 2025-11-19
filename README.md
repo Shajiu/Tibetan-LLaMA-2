@@ -226,12 +226,11 @@ python convert_hf_to_gguf.py ../path_to_llama3_chinese_instruct_hf_dir/
 
 若使用本项目的数据、代码或模型，请引用本项目。
 ```text
-@misc{Tibetan_Mental_Health_Chat,
-  author = {shajiu},
-  title = {Yak-Llama 2: 面向藏文高效扩展的大语言模型},
-  year = {2024},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{git@github.com:Shajiu/Yak-Llama-2.git}},
+@article{sha2025tibetan,
+  title={Tibetan-LLaMA 2: Large Language Model for Tibetan},
+  author={Sha, Jiu and Zhu, Mengxiao and Feng, Chong and Ci, Jizhuoma},
+  journal={ACM Transactions on Asian and Low-Resource Language Information Processing},
+  year={2025},
+  publisher={ACM New York, NY}
 }
 ```
