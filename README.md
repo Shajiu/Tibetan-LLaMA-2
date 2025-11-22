@@ -1,10 +1,10 @@
 
-## Yak-Llama 2: 面向藏文高效扩展的大语言模型（Tibetan-LLaMA 2: Large Language Model for Tibetan）
-![Yak](https://github.com/Shajiu/Yak-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
+## Tibetan-LLaMA 2: Large Language Model for Tibetan  Tibetan-Llama 2: 面向藏文高效扩展的大语言模型（Tibetan-LLaMA 2: Large Language Model for Tibetan）
+![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
 
 **一、引言：**
 
--  本项目开源了**Yak-Llama 2: 面向藏文高效扩展的大语言模型**，以进一步促进大模型在藏文NLP社区的开放研究。这些模型**在原版LLaMA的基础上扩充了藏文词表**并使用了藏文数据进行继续预训练，进一步提升了藏文基础语义理解能力。同时，藏文Chat模型进一步使用了藏文指令数据进行精调，显著提升了模型对指令的理解和执行能力。
+-  本项目开源了**Tibetan-Llama 2: 面向藏文高效扩展的大语言模型**，以进一步促进大模型在藏文NLP社区的开放研究。这些模型**在原版LLaMA的基础上扩充了藏文词表**并使用了藏文数据进行继续预训练，进一步提升了藏文基础语义理解能力。同时，藏文Chat模型进一步使用了藏文指令数据进行精调，显著提升了模型对指令的理解和执行能力。
 
 **二、摘要：**
 
@@ -194,8 +194,8 @@ python convert_hf_to_gguf.py ../path_to_llama3_chinese_instruct_hf_dir/
 
 | 模型名称 | 类型 | 训练数据 |重构模型|大小|下载地址|
 | :-----| ----: | :----: |:----: |:----: |:----: |
-| Yak_Llama2_7B | 基座 | 8B |原版LLaMA-7B|12.9 GB|[Yak_Llama2_7B](https://huggingface.co/shajiu/Yak_Llama2_7B)|
-| Yak_Llama2_13B    | 基座 | 13B  |原版LLaMA-7B|24.7 GB |[Yak_Llama2_13B](https://huggingface.co/shajiu/Yak_Llama2_13B)|
+| Tibetan_Llama2_7B | 基座 | 8B |原版LLaMA-7B|12.9 GB|[Tibetan_Llama2_7B](https://huggingface.co/shajiu/Tibetan_Llama2_7B)|
+| Tibetan_Llama2_13B    | 基座 | 13B  |原版LLaMA-7B|24.7 GB |[Tibetan_Llama2_13B](https://huggingface.co/shajiu/Tibetan_Llama2_13B)|
 
 
 **六、数据集下载**
