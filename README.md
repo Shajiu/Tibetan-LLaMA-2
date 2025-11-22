@@ -1,5 +1,5 @@
 
-## Yak-Llama 2: 面向藏文高效扩展的大语言模型
+## Yak-Llama 2: 面向藏文高效扩展的大语言模型（Tibetan-LLaMA 2: Large Language Model for Tibetan）
 ![Yak](https://github.com/Shajiu/Yak-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
 
 **一、引言：**
