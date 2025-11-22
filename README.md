@@ -194,8 +194,8 @@ python convert_hf_to_gguf.py ../path_to_llama3_chinese_instruct_hf_dir/
 
 | 模型名称 | 类型 | 训练数据 |重构模型|大小|下载地址|
 | :-----| ----: | :----: |:----: |:----: |:----: |
-| Tibetan_Llama2_7B | 基座 | 8B |原版LLaMA-7B|12.9 GB|[Tibetan_Llama2_7B](https://huggingface.co/shajiu/Tibetan_Llama2_7B)|
-| Tibetan_Llama2_13B    | 基座 | 13B  |原版LLaMA-7B|24.7 GB |[Tibetan_Llama2_13B](https://huggingface.co/shajiu/Tibetan_Llama2_13B)|
+| Tibetan_Llama2_7B | 基座 | 8B |原版LLaMA-7B|12.9 GB|[Tibetan_Llama2_7B](https://huggingface.co/shajiu/Yak_Llama2_7B)|
+| Tibetan_Llama2_13B    | 基座 | 13B  |原版LLaMA-7B|24.7 GB |[Tibetan_Llama2_13B](https://huggingface.co/shajiu/Yak_Llama2_13B)|
 
 
 **六、数据集下载**
