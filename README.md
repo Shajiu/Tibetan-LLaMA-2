@@ -3,7 +3,7 @@
 
 
 
-![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
+![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=300x100)
 
 **I. Introduction:**
 
