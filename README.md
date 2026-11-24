@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://dl.acm.org/doi/epdf/10.1145/3776748">
-    <img src="https://img.shields.io/badge/arXiv-2512.00818-red?logo=arxiv">
+    <img src="https://img.shields.io/badge/arXiv-2512.22334-red?logo=arxiv">
   </a>
   <a href="https://huggingface.co/shajiu/Yak_Llama2_13B">
     <img src="https://img.shields.io/badge/HuggingFace-Med--CMR-yellow?logo=huggingface">
