@@ -1,9 +1,10 @@
 <h1 align="center" style="margin-top: -35px;"><b>Tibetan-LLaMA 2: Large Language Model for Tibetan</b></h1>
 
 
+<p align="center">
+  <img src="[images/icon.png](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png)" width="500">
+</p>
 
-
-![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=300x100)
 
 **I. Introduction:**
 
