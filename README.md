@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="images/Tibetan-LLaMA2-logo.png"
+  <img src="cpt_with_peft_lora/Tibetan-LLaMA2-logo.png"
        alt="Tibetan-LLaMA 2"
        width="1000"/>
 </p>
