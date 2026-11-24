@@ -265,7 +265,10 @@ If you use the data, code, or models from this project, please cite this work.
   title={Tibetan-LLaMA 2: Large Language Model for Tibetan},
   author={Sha, Jiu and Zhu, Mengxiao and Feng, Chong and Ci, Jizhuoma},
   journal={ACM Transactions on Asian and Low-Resource Language Information Processing},
+  volume={24},
+  number={12},
+  pages={1--19},
   year={2025},
-  publisher={ACM New York, NY}
+  publisher={ACM, New York, NY}
 }
 ```
