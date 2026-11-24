@@ -2,7 +2,9 @@
 
 
 <p align="center">
-  <img src="[images/icon.png](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png)" width="500">
+  <img src="images/Tibetan-LLaMA2-logo.png"
+       alt="Tibetan-LLaMA 2"
+       width="1000"/>
 </p>
 
 
