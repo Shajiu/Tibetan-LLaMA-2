@@ -1,51 +1,57 @@
+# Tibetan-LLaMA 2: Large Language Model for Tibetan (An Efficiently Extensible Large Language Model for Tibetan)
 
-## Tibetan-LLaMA 2: Large Language Model for Tibetan （面向藏文高效扩展的大语言模型）
 ![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
 
-**一、引言：**
+**I. Introduction:**
 
--  本项目开源了**Tibetan-Llama 2: 面向藏文高效扩展的大语言模型**，以进一步促进大模型在藏文NLP社区的开放研究。这些模型**在原版LLaMA的基础上扩充了藏文词表**并使用了藏文数据进行继续预训练，进一步提升了藏文基础语义理解能力。同时，藏文Chat模型进一步使用了藏文指令数据进行精调，显著提升了模型对指令的理解和执行能力。
+- This project releases **Tibetan-LLaMA 2: Large Language Model for Tibetan**, aiming to further promote open research on large language models within the Tibetan NLP community. These models **extend the vocabulary of the original LLaMA** and undergo continued pre-training using Tibetan data, further enhancing their foundational semantic understanding of Tibetan. Meanwhile, the Tibetan Chat models are further fine-tuned using Tibetan instruction data, significantly improving their ability to understand and follow instructions.
 
-**二、摘要：**
+**II. Abstract:**
 
--  本研究针对大型语言模型在处理藏语任务方面的局限性，提出了一套综合解决方案。
--  首先，我们构建了一个15G 的大规模高质量藏语无监督预训练数据集和一个包含100 万条数据的监督式多任务微调数据集，有效缓解了数据资源稀缺的问题。
--  进一步，通过分析藏文的特殊构词和语法特性，我们选定了基于Unigram 的词元化策略，并开发了一个高效的藏文分词器。
--  此外，通过对Llama 2-7B/13B 模型进行藏文词表扩展和采用藏文比英中按3:4 比例的混合继续预训练，显著增强了模型对藏语的理解和生成能力。
--  为优化模型训练与部署的效率，并提升其对藏语语义和指令的遵循能力，本研究在有监督的多任务指令数据集上应用了LoRA+ 微调方法，进一步提升了性能。
--  为验证所提方法的有效性，我们建立了面向藏文的十种评测基准，并通过自动与人工评测进行了综合验证，结果显示该方法在英文能力保持良好的前提下，在藏文理解与生成方面取得了显著进步。本研究的创新之处在于系统性地解决LLMs 处理藏语数据的效率和性能问题，特别是通过独创的词元化策略和混合预训练方法大幅提升了处理效率和泛化能力。
--  所有研究成果已开源，为藏语及其他少数民族语言的LLMs 应用和研究提供了宝贵资源和坚实基础，促进了LLMs 在处理特定语种上的研究和部署，同时为人工智能领域内语言多样性的发展贡献了重要力量。
+- This study addresses the limitations of large language models in handling Tibetan language tasks and proposes a comprehensive solution.
+- First, we construct a large-scale, high-quality Tibetan unsupervised pre-training dataset containing 15 GB of data and a supervised multi-task fine-tuning dataset containing 1 million samples, effectively alleviating the scarcity of Tibetan language resources.
+- Furthermore, by analyzing the unique morphological and grammatical characteristics of Tibetan, we select a Unigram-based tokenization strategy and develop an efficient Tibetan tokenizer.
+- In addition, by extending the vocabulary of the Llama 2-7B/13B models and conducting mixed continued pre-training with Tibetan and English/Chinese data at a ratio of 3:4, we significantly enhance the models' Tibetan understanding and generation capabilities.
+- To optimize training and deployment efficiency while improving the models' understanding of Tibetan semantics and instruction-following capabilities, we apply the LoRA+ fine-tuning method to a supervised multi-task instruction dataset, further improving model performance.
+- To validate the effectiveness of the proposed methods, we establish ten Tibetan-oriented evaluation benchmarks and conduct comprehensive evaluations through both automatic and human assessments. The results demonstrate significant improvements in Tibetan understanding and generation while maintaining strong English capabilities. The key innovation of this study lies in systematically addressing the efficiency and performance challenges of LLMs when processing Tibetan data, particularly through a novel tokenization strategy and mixed pre-training approach that substantially improve processing efficiency and generalization capabilities.
+- All research成果 have been open-sourced, providing valuable resources and a solid foundation for LLM applications and research in Tibetan and other minority languages. These contributions promote the research and deployment of LLMs for specific languages while making an important contribution to linguistic diversity in artificial intelligence.
 
-**三、贡献：**
+**III. Contributions:**
 
-- 🚀 对Llama 2 进行藏文词表扩充，提高编解码效率。与原始Llama 2 相对，藏文序列长度减少约42.64%，模型在藏文域的最大文本输入长度提升至原来的两倍以上；
-- 🚀 本文初步全面探索针对藏文的词元化策略，最终选取Unigram 为藏文的最佳词元化策略，解决原基座模型的藏语词元化性能不佳问题，增强模型对藏文内容的理解和生成能力；
-- 🚀 结合藏文和英中文数据进行3:4 的比例混合CPT，并对藏文进行指令微调，同时开源了基于Llama 2-7B/13B 规模的Base 和Chat 模型权重，支持更广泛的应用和研究。
+- 🚀 Extend the Tibetan vocabulary of Llama 2 to improve encoding and decoding efficiency. Compared with the original Llama 2, the Tibetan sequence length is reduced by approximately 42.64%, and the maximum Tibetan text input length supported by the model is increased to more than twice its original capacity.
+- 🚀 Conduct a comprehensive preliminary exploration of tokenization strategies for Tibetan and ultimately select Unigram as the optimal tokenization strategy, addressing the poor Tibetan tokenization performance of the original base model and enhancing its ability to understand and generate Tibetan content.
+- 🚀 Perform mixed CPT using Tibetan and English/Chinese data at a ratio of 3:4, followed by Tibetan instruction fine-tuning. We also open-source the Base and Chat model weights based on Llama 2-7B/13B, supporting a broader range of applications and research.
 
-**四、训练策略：**
+**IV. Training Strategy:**
 
-本文采取两阶段方式:
--  第一阶段，固定模型Transformer 部分的参数，仅训练Embedding，在尽量不干扰原模型的情况下适配新增的藏文词向量；
--  第二阶段：为模型添加LoRA+ 权重，训练Embedding 的同时也更新LoRA+ 参数。两阶段的训练方式虽然效率较低，然而有效缓解了由于藏文数据与Llama 2 模型预训练时使用的数据分布存在差距而在CPT 过程中出现分布偏移的问题。
+This study adopts a two-stage training approach:
 
-**五、使用方法：**
+- Stage 1: Freeze the parameters of the model's Transformer components and train only the Embedding layer, adapting the newly added Tibetan token embeddings while minimizing interference with the original model.
+- Stage 2: Add LoRA+ weights to the model and train the LoRA+ parameters together with the Embedding layer. Although this two-stage training approach is relatively less efficient, it effectively alleviates the distribution shift encountered during CPT due to the discrepancy between the Tibetan data distribution and the data distribution used during the pre-training of Llama 2.
 
-#### 1. 部署环境
+**V. Usage:**
+
+#### 1. Environment Setup
+
 ```sh
 pip install -r requirements.txt
 ```
 
-#### 2. 继续预训练数据处理为如下格式
+#### 2. Format the Continued Pre-training Data as Follows
+
 ```sh
-# 存储在./data/data.txt中，一行为一条样本
+# Stored in ./data/data.txt, with one sample per line
 གྲོང་ཚོར་བཅའ་སྡོད་བྱ་ཡུལ་དུ་ཁྲང་ཧྥུའུ་ལེའང་གིས་གྲོང་ཚོར་བཅའ་སྡོད་ལས་བྱེད་པ་དང་བསམ་བློ་བརྗེ་རེས་བྱས་པ་དང་། གཞུང་ལས་ཁང་(ཅུད)གི་ཏང་ཙུའུ་ཡིས་བཅའ་སྡོད་ལས་བྱེད་པར་ཐུགས་ཁུར་ཟབ་བཞེས་གནང་ལུགས་བརྒྱུད་བསྒྲགས་བྱས་པ་མ་ཟད། གྲོང་ཚོར་བཅའ་སྡོད་ལས་བྱེད་པའི་འཚོ་བ་དང་བདེ་ཐང་གི་གནས་ཚུལ་ལ་རྒྱུས་ལོན་བྱས་ཁར་། གྲོང་ཚོར་བཅའ་སྡོད་ལས་དོན་རུ་ཁག་གི་ལས་དོན་སྙན་ཞུ་ནན་ཏན་ངང་གསན་པ་དང་ཁོང་ཚོར་ཐོབ་པའི་གྲུབ་འབྲས་ལ་ཁས་ལེན་གང་ལེགས་གནང་བ་རེད།
 ```
 
-#### 3. CPT训练
+#### 3. CPT Training
+
 ```sh
 sh run_pt.sh
 ```
-详细内容如下
+
+The detailed configuration is as follows:
+
 ```sh
 
 lr=2e-5
@@ -55,16 +61,16 @@ lora_trainable="q_proj,v_proj,k_proj,o_proj,gate_proj,down_proj,up_proj"
 modules_to_save="embed_tokens,lm_head"
 lora_dropout=0.05
 
-pretrained_model=per_models/Llama-2-13b-hf                 # 本地已下载的Llama-2-13b-hf基座模型路径
-tibetan_tokenizer_path=per_models/merged_tokenizer_hf      # 通过扩充的藏文词汇表路径
-dataset_dir=data                                           # 训练数据的文件夹
+pretrained_model=per_models/Llama-2-13b-hf                 # Local path to the downloaded Llama-2-13b-hf base model
+tibetan_tokenizer_path=per_models/merged_tokenizer_hf      # Path to the expanded Tibetan vocabulary
+dataset_dir=data                                           # Folder containing the training data
 data_cache=temp_data_cache_dir       
 per_device_train_batch_size=12
 gradient_accumulation_steps=8
 block_size=256
 output_dir=output_dir_13
 
-deepspeed_config_file=ds_z2_config.json                     # deepspeed配置文件                  
+deepspeed_config_file=ds_z2_config.json                     # DeepSpeed configuration file
 
 torchrun --nnodes 1 --nproc_per_node 1 --master_port=25678 train.py \
     --deepspeed ${deepspeed_config_file} \
@@ -106,43 +112,50 @@ torchrun --nnodes 1 --nproc_per_node 1 --master_port=25678 train.py \
     --ddp_find_unused_parameters False
 ```
 
-#### 4. 合并权重
+#### 4. Merge Weights
+
 ```sh
 sh run_merge_export.sh
 ```
-详细内容如下
+
+The detailed commands are as follows:
+
 ```sh
 
-# 转为huggingface格式
+# Convert to Hugging Face format
 python3.9 merge_lora_low_mem.py \
-  --base_model per_models/Llama-2-13b-hf \
-  --lora_model output_dir_7B/checkpoint-219800 \
-  --output_type huggingface \
-  --output_dir ./merge_llama2_with_chinese_lora_13B/huggingface/ 
+    --base_model per_models/Llama-2-13b-hf \
+    --lora_model output_dir_7B/checkpoint-219800 \
+    --output_type huggingface \
+    --output_dir ./merge_llama2_with_chinese_lora_13B/huggingface/ 
 
 -----------------------------------------------------------------OR-----------------------------------------------------------------
 
-# 转为pth格式
+# Convert to PTH format
 python3.9 merge_lora_low_mem.py \
-  --base_model per_models/Llama-2-13b-hf \
-  --lora_model output_dir_7B/checkpoint-219800 \
-  --output_type pth \
-  --output_dir ./merge_llama2_with_chinese_lora_13B/pth/ 
+    --base_model per_models/Llama-2-13b-hf \
+    --lora_model output_dir_7B/checkpoint-219800 \
+    --output_type pth \
+    --output_dir ./merge_llama2_with_chinese_lora_13B/pth/
 ```
 
-#### 5. 启动服务
+#### 5. Start the Service
+
 ```sh
 python serve_demo.py
 ```
-#### 6. 请求服务的方式
+
+#### 6. How to Send Service Requests
+
 ```sh
 POST   http://10.x.x.x:8718/api/chat
 
 {"query":"xxxxxxxxx"}
 ```
 
-#### 7. 离线交互式对话/文件预测
-- 使用transformers库推理
+#### 7. Offline Interactive Chat / File Prediction
+
+- Inference using the Transformers library
 
 ```sh
 python inference_hf.py \
@@ -150,81 +163,88 @@ python inference_hf.py \
     --with_prompt \
     --interactive \
 ```
-- 使用vLLM进行推理加速
+
+- Accelerated inference using vLLM
 
 ```sh
 python inference_hf.py \
     --base_model path_to_llama3_chinese_instruct_hf_dir \
     --with_prompt \
     --interactive \
-    --use_vllm 
+    --use_vllm
 ```
 
-#### 8. 基于llama.cpp的量化部署
-- 安装 llama.cpp
+#### 8. Quantized Deployment Based on llama.cpp
+
+- Install llama.cpp
+
 ```sh
 https://github.com/ggerganov/llama.cpp
 ```
-- 编译
- 
+
+- Compile
+
 ```sh
 make LLAMA_CUBLAS=1
 ```
 
-- 将上述.pth/bin模型权重转换为ggml的FP16格式
+- Convert the above .pth/bin model weights to the GGML FP16 format
+
 ```
 python convert_hf_to_gguf.py ../path_to_llama3_chinese_instruct_hf_dir/
 ```
 
-- 对FP16模型进行4-bit量化
+- Quantize the FP16 model to 4-bit
+
 ```
-./llama-quantize.exe ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-f16.gguf ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-q4_0.bin q4_0​
+./llama-quantize.exe ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-f16.gguf ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-q4_0.bin q4_0
 ```
 
-- 交互式测试
+- Interactive testing
+
 ```
- ./llama-cli.exe  --conversation -m ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-q4_0.bin --color -f prompts/alpaca.txt -c 2048 --temp 0.2 -n 256
+./llama-cli.exe --conversation -m ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-q4_0.bin --color -f prompts/alpaca.txt -c 2048 --temp 0.2 -n 256
 ```
 
-- 服务版本
+- Server version
+
 ```sh
 ./llama-server.exe -m ../path_to_llama3_chinese_instruct_hf_dir/ggml-model-q4_0.gguf -c 2048
 ```
-**五、模型下载：**
 
-| 模型名称 | 类型 | 训练数据 |重构模型|大小|下载地址|
+**V. Model Downloads:**
+
+| Model Name | Type | Training Data | Reconstructed Model | Size | Download Link |
 | :-----| ----: | :----: |:----: |:----: |:----: |
-| Tibetan_Llama2_7B | 基座 | 8B |原版LLaMA-7B|12.9 GB|[Tibetan_Llama2_7B](https://huggingface.co/shajiu/Yak_Llama2_7B)|
-| Tibetan_Llama2_13B    | 基座 | 13B  |原版LLaMA-7B|24.7 GB |[Tibetan_Llama2_13B](https://huggingface.co/shajiu/Yak_Llama2_13B)|
+| Tibetan_Llama2_7B | Base | 8B | Original LLaMA-7B | 12.9 GB | [Tibetan_Llama2_7B](https://huggingface.co/shajiu/Yak_Llama2_7B) |
+| Tibetan_Llama2_13B | Base | 13B | Original LLaMA-7B | 24.7 GB | [Tibetan_Llama2_13B](https://huggingface.co/shajiu/Yak_Llama2_13B) |
 
 
-**六、数据集下载**
+**VI. Dataset Downloads**
 
-| 数据名称 | 数据类型 | 数据规模 |下载地址|
+| Dataset Name | Data Type | Dataset Size | Download Link |
 | :-----| ----: | :----: |:----: |
-| TibetanGeneral corpus | 继续预训练 | 15GB| [TibetanGeneral corpus](https://huggingface.co/datasets/shajiu/TibetanGeneral_corpus)|
-| TibetanSft corpus     | 指令微调   | 1GB | [TibetanSft corpus](https://huggingface.co/datasets/shajiu/TibetanSft_corpus)|
+| TibetanGeneral corpus | Continued Pre-training | 15GB | [TibetanGeneral corpus](https://huggingface.co/datasets/shajiu/TibetanGeneral_corpus) |
+| TibetanSft corpus | Instruction Fine-tuning | 1GB | [TibetanSft corpus](https://huggingface.co/datasets/shajiu/TibetanSft_corpus) |
 
+For data security considerations and to mitigate potential harmful impacts, we have chosen not to release the complete safety evaluation dataset. The publicly downloadable test set in this repository contains only a subset of the data. However, researchers conducting safety research may request access by emailing `shajiu_dn@163.com`. Upon approval, we will provide applicants with the complete dataset.
 
-出于数据安全考虑和潜在的危害性影响，我们选择不公开完整的安全测试数据集。仓库中可下载的公开测试集仅包括部分数据。但是，为了进行安全研究，研究人员可以通过邮件至`shajiu_dn@163.com`进行申请。经过批准后，我们​​将向申请人提供完整的数据集。
-**声明:** 数据集包含有害违规内容示例，均不代表本团队立场。
+**Statement:** The dataset contains examples of harmful and policy-violating content, which do not represent the views or positions of our team.
 
+**VII. Disclaimer:**
 
+The resources associated with this project are intended solely for academic research and must not be used for commercial purposes. When using components involving third-party code, please strictly comply with the corresponding open-source licenses. The content generated by the model may be affected by factors such as model computation, randomness, and quantization precision loss. This project makes no guarantees regarding the accuracy of the generated content. This project assumes no legal responsibility for any content generated by the model, nor does it accept liability for any losses that may arise from the use of the relevant resources or generated outputs. This project is initiated and maintained by individuals and collaborators during their spare time; therefore, we cannot guarantee timely responses or solutions to reported issues.
 
-**七、免责声明：**
+**VIII. Acknowledgments:**
 
-本项目相关资源仅供学术研究之用，严禁用于商业用途。 使用涉及第三方代码的部分时，请严格遵循相应的开源协议。模型生成的内容受模型计算、随机性和量化精度损失等因素影响，本项目不对其准确性作出保证。对于模型输出的任何内容，本项目不承担任何法律责任，亦不对因使用相关资源和输出结果而可能产生的任何损失承担责任。本项目由个人及协作者业余时间发起并维护，因此无法保证能及时回复解决相应问题。
+This project is primarily developed based on the following open-source project. We would like to express our gratitude to the project and its research and development contributors.
 
-
-**八、致谢：**
-
-本项目主要基于以下开源项目二次开发，在此对相关项目和研究开发人员表示感谢。
 - [Chinese-LLaMA-Alpaca-2](https://github.com/ymcui/Chinese-LLaMA-Alpaca-2)
 
+**IX. Citation:**
 
-**九、引用：**
+If you use the data, code, or models from this project, please cite this work.
 
-若使用本项目的数据、代码或模型，请引用本项目。
 ```text
 @article{sha2025tibetan,
   title={Tibetan-LLaMA 2: Large Language Model for Tibetan},
