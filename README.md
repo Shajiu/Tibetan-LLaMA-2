@@ -1,4 +1,7 @@
-# Tibetan-LLaMA 2: Large Language Model for Tibetan (An Efficiently Extensible Large Language Model for Tibetan)
+<h1 align="center" style="margin-top: -35px;"><b>Tibetan-LLaMA 2: Large Language Model for Tibetan</b></h1>
+
+
+
 
 ![Tibetan](https://github.com/Shajiu/Tibetan-Llama-2/blob/main/cpt_with_peft_lora/logo.png#pic_center=600x200)
 
