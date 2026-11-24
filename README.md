@@ -9,12 +9,12 @@
 
 <p align="center">
   <a href="https://dl.acm.org/doi/epdf/10.1145/3776748">
-    <img src="https://img.shields.io/badge/ACM-Paper-red.svg" alt="ACM Paper">
+    <img src="https://img.shields.io/badge/Publication-ACM-blue" alt="ACM Paper">
   </a>
   <a href="https://huggingface.co/shajiu/Yak_Llama2_13B">
-    <img src="https://img.shields.io/badge/Model-Hugging_Face-yellow.svg" alt="Hugging Face Model">
+    <img src="https://img.shields.io/badge/Model-Hugging_Face-yellow" alt="Hugging Face Model">
   </a>
-  <img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="License">
+  <img src="https://img.shields.io/badge/License-Apache--2.0-blue" alt="License">
 </p>
 
 **I. Introduction:**
