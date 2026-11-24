@@ -7,6 +7,15 @@
        width="1000"/>
 </p>
 
+<p align="center">
+  <a href="https://dl.acm.org/doi/epdf/10.1145/3776748">
+    <img src="https://dl.acm.org/doi/epdf/10.1145/3776748">
+  </a>
+  <a href="https://huggingface.co/shajiu/Yak_Llama2_13B">
+    <img src="https://img.shields.io/badge/HuggingFace-Med--CMR-yellow?logo=huggingface">
+  </a>
+  <img src="https://img.shields.io/badge/License-Apache--2.0-blue">
+</p>
 
 **I. Introduction:**
 
